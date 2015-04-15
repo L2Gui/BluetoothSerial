@@ -458,7 +458,7 @@ public class BluetoothSerialService {
                     // We make a copy because the full array can have extra data at the end
                     // when / if we read less than its size.
                     if (bytes > 0) {
-                        byte[] rawdata = Arrays.copyOf(buffer, bytes);
+                        byte[] rawdata = buffer.clone();
                         mHandler.obtainMessage(BluetoothSerial.MESSAGE_READ_RAW, rawdata).sendToTarget();
                     }
 
